@@ -1,0 +1,37 @@
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+@mixin ellipsisLn($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+}
+@mixin wh($width,$height){
+    width: $width;
+    height: $height;
+    display: block;
+}
+@mixin flex($direction:row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin border1px($direction:bottom) {
+    position: relative;
+    &::after{
+        content: '';
+        @include wh(200%,1px);
+        transform-origin: left top;
+        transform: scale(0.5);
+        background: #eee;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
